@@ -26,7 +26,7 @@ CREATE TABLE product(
     image text,
     PRIMARY KEY(id),
     category_id INT,
-    FOREIGN KEY(category_id) REFERENCES category(id)
+    FOREIGN KEY(category_id) REFERENCES categusersory(id)
 );
 CREATE TABLE orders(
 	id int primary key,
@@ -42,6 +42,7 @@ CREATE TABLE order_detail(
     FOREIGN KEY(id_order) REFERENCES orders(id),
     id_product int,
     FOREIGN KEY(id_product) REFERENCES product(id),
+    primary key(id_order,id_product),
     quantity int,
     price float
 ); 
